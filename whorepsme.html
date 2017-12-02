@@ -1,0 +1,33 @@
+<doctype! html>
+<!-- get tasks here https://trello.com/b/HXaghs6t/who-the-fuck-governs-me-and-what-to-they-do -->
+<!-- api docuementation page: documentation page https://projects.propublica.org/api-docs/congress-api/ -->
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+</body>
+<script>
+
+ $.ajax({ 
+    url: 'https://api.propublica.org/congress/v1/115/senate/members.json',
+    method: 'GET',
+    headers: {
+      'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
+    }
+  }).done(function(response) {
+      console.log(response);
+    });
+
+   $.ajax({ 
+    url: 'https://api.propublica.org/congress/v1/115/house/members.json',
+    method: 'GET',
+    headers: {
+      'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
+    }
+  }).done(function(response) {
+      console.log(response);
+    });
+  </script>
+  <html>
