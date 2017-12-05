@@ -7,27 +7,89 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+<button id='test'>CLICK ME BRO</button>
+<div class='container'>
+</div>
 </body>
 <script>
+  var senate =0;
+  var congress;
+  var state = 'OH'
+  var localSenate= [];
+  var localCongress=[];
+$.ajax({ 
+  url: 'https://api.propublica.org/congress/v1/115/senate/members.json',
+  method: 'GET',
+  headers: {
+    'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
+ }
+}).done(function(response) {
+    console.log(response);
+    senate = response
+    console.log(response.results[0].members[0].first_name);
+  });
 
  $.ajax({ 
-    url: 'https://api.propublica.org/congress/v1/115/senate/members.json',
-    method: 'GET',
-    headers: {
-      'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
-    }
-  }).done(function(response) {
-      console.log(response);
-    });
+  url: 'https://api.propublica.org/congress/v1/115/house/members.json',
+  method: 'GET',
+  headers: {
+    'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
+  }
+}).done(function(response) {
+    console.log(response);
+    congress = response;
+  });
 
-   $.ajax({ 
-    url: 'https://api.propublica.org/congress/v1/115/house/members.json',
-    method: 'GET',
-    headers: {
-      'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
+console.log(senate);
+function searchSenateByState(){
+  // use a loop to run through each array entry and set the qualifying results to variables.
+  for(i=0; i<senate.results[0].members.length; i++){
+    if(senate.results[0].members[i].state == state){
+      localSenate.push(senate.results[0].members[i]);
     }
-  }).done(function(response) {
-      console.log(response);
-    });
+  }
+}
+function searchCongressByState(){
+    for(i=0; i<congress.results[0].members.length; i++){
+    if(congress.results[0].members[i].state == state){
+      localCongress.push(congress.results[0].members[i]);
+    }
+  }
+}
+function renderSenate(){
+for(i=0; i<localSenate.length; i++){
+ $('<div>',{
+  id: 'senate'+i,
+  class: 'senate', 
+  }).appendTo('.container');
+   }
+  }
+
+function grabFirstName(x,y){
+console.log(x[y].first_name);
+}
+function grabLastName(x,y){
+console.log(x[y].last_name);
+}
+$('#test').on('click', function(){
+  if(senate == undefined){
+
+  }
+  else {
+  searchSenateByState();
+  searchCongressByState();
+  grabFirstName(localSenate, 0);
+  grabLastName(localSenate, 0);
+  console.log(localSenate);
+  console.log(localCongress);
+  renderSenate();
+  }
+})
+
+
+
+
+
+
   </script>
   <html>
