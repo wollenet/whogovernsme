@@ -1,0 +1,30 @@
+body {
+	min-height: 100%;
+}
+
+.container-fluid {
+	background-image: url("https://ssl.c.photoshelter.com/img-get2/I00005decq2CnCRQ/fit=1000x750/united-states-capitol-building-at-night-with-reflection-washington-panorama-107202454.jpg"); 
+	background-repeat: no-repeat;
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: 100%;
+	width: 100%;
+}
+
+.navbar {
+	opacity: 0;
+}
+.navbar-home {
+	text-align: center;
+}
+
+.panel-footer {
+	position: fixed;
+	left:0px;
+	bottom:0px;
+	width: 100%;
+}
+
