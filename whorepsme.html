@@ -4,11 +4,20 @@
 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- bootstrap -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+  <!-- fontawesome -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- jquery -->
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <!-- moment -->
 </head>
 <body>
 <button id='test'>CLICK ME BRO</button>
+<button id='populate'>Populate</button>
 <div class='container'>
+  <div class='row'>
 </div>
 </body>
 <script>
@@ -17,6 +26,11 @@
   var state = 'OH'
   var localSenate= [];
   var localCongress=[];
+  var iterationStop=0;
+//   if(localStorage.senate == true){
+// senate = localStorage.senate;
+//   }
+//   else {
 $.ajax({ 
   url: 'https://api.propublica.org/congress/v1/115/senate/members.json',
   method: 'GET',
@@ -25,7 +39,8 @@ $.ajax({
  }
 }).done(function(response) {
     console.log(response);
-    senate = response
+    senate = response;
+    localStorage.senate = response;
     console.log(response.results[0].members[0].first_name);
   });
 
@@ -38,39 +53,117 @@ $.ajax({
 }).done(function(response) {
     console.log(response);
     congress = response;
+    localStorage.congress = response;
   });
 
 console.log(senate);
 function searchSenateByState(){
+  if(iterationStop==0){
   // use a loop to run through each array entry and set the qualifying results to variables.
   for(i=0; i<senate.results[0].members.length; i++){
     if(senate.results[0].members[i].state == state){
       localSenate.push(senate.results[0].members[i]);
+      }
     }
   }
-}
+}  
 function searchCongressByState(){
+  if(iterationStop==0){
     for(i=0; i<congress.results[0].members.length; i++){
     if(congress.results[0].members[i].state == state){
       localCongress.push(congress.results[0].members[i]);
+      }
     }
   }
-}
+ } 
 function renderSenate(){
+  if (iterationStop==0){
 for(i=0; i<localSenate.length; i++){
- $('<div>',{
-  id: 'senate'+i,
-  class: 'senate', 
+  $('<div>',{
+  id: 'senate_placeholder'+i,
+  class: 'senate_placeholder', 
   }).appendTo('.container');
-   }
+  $('<p>',{
+  id: 'senate_name'+i,
+  class: 'senate_name',
+  text: localSenate[i].first_name + " " + localSenate[i].last_name, 
+  }).appendTo('#senate_placeholder'+i);
+  $('<p>',{
+  id: 'senate_dob'+i,
+  class: 'senate_dob',
+  text: "Born: " + moment(localSenate[i].date_of_birth).format('LL')
+  }).appendTo('#senate_placeholder'+i);
+  $('<p>',{
+  id: 'senate_state'+i,
+  class: 'senate_state',
+  text: 'State: '+ localSenate[i].state,
+  }).appendTo('#senate_placeholder'+i);
+  $('<p>',{
+    id: 'senate_party'+i,
+    class: 'senate_party',
+    text:"Party: " + localSenate[i].party,
+   }).appendTo('#senate_placeholder'+i);
+  $('<p>',{
+    id: 'senate_votes_with_party_pct'+i,
+    class: 'senate_votes_with_party_pct',
+    text: "Votes With Party Percentage: " + localSenate[i].votes_with_party_pct+'%',
+   }).appendTo('#senate_placeholder'+i);
+  if(localSenate[i].facebook_account != null){
+  $('<a>',{
+    id: 'senate_facebook'+i,
+    class: 'senate_facebook',
+    href: 'https://facebook.com/'+localSenate[i].facebook_account,
+  }).appendTo('#senate_placeholder'+i);
+   $('<i>',{ 
+    class: "fab fa-facebook fa-3x",
+   }).appendTo('#senate_facebook'+i);
+  }  
+  $('<a>',{
+    id: 'senate_contact_form'+i,
+    class: 'senate_contact_form',
+    href: localSenate[i].contact_form,
+   }).appendTo('#senate_placeholder'+i);
+  $('<i>',{
+    class: 'class="fas fa-envelope-square fa-3x'
+  }).appendTo('#senate_contact_form'+i);
+}
+}
+}
+
+function grabFirstName(x){
+  for(i=0; i<x; i++){
+    console.log(x+"i am working")
+$('#senate'+i).text(x[i].first_name);
+
   }
 
-function grabFirstName(x,y){
-console.log(x[y].first_name);
 }
 function grabLastName(x,y){
 console.log(x[y].last_name);
 }
+function grabDOB(x,y){
+console.log(x[y].date_of_birth)
+}
+function grabState(x,y){
+console.log(x[y].state)
+}
+function grabParty(x,y){
+console.log(x[y].party)
+}
+function votesWPP(x,y){
+console.log(x[y].votes_with_party_pct)
+}
+
+function populateData(x){
+  for (i=0; i<x.length; i++){
+     $('#senate'+i).text(grabFirstName(x,i));
+    console.log(x);
+  }
+}
+$('#populate').on('click', function(){
+  console.log('i am working!')
+grabFirstName(localSenate);
+})
 $('#test').on('click', function(){
   if(senate == undefined){
 
@@ -83,8 +176,10 @@ $('#test').on('click', function(){
   console.log(localSenate);
   console.log(localCongress);
   renderSenate();
+  iterationStop=1;
   }
 })
+
 
 
 
