@@ -9,7 +9,7 @@ body {
 
 
 .container {
-	background-image: url("https://ssl.c.photoshelter.com/img-get2/I00005decq2CnCRQ/fit=1000x750/united-states-capitol-building-at-night-with-reflection-washington-panorama-107202454.jpg"); 
+	background-image: url("http://www.powerpointhintergrund.com/uploads/2017/05/patriotic-star-backgrounds-hd-wallpaper-at-wallpapersmap--21.jpeg"); 
 	background-repeat: repeat;
 	background-position: top;
 	background-size: cover;
@@ -74,47 +74,3 @@ button {
 	font-weight: bolder;
 	font-style: ;
 }
-
-.sumbit-row {
-	padding-top: 0px;
-}
-
-.form-group {
-	color: white;
-	size: 20px;
-	float: left;
-}
-
-.submit-div {
-	float: left;
-	padding-top: 20px;
-}
-
-select {
-	cursor: pointer;
-	display: inline-block;
-	position: relative;
-	font: normal 60px/60px arial;
-}
-
-#dropdown {
-	width: auto;
-}
-
-.form-control {
-	height: 38px;
-	font-size: 25px;
-	padding-bottom: 4px
-}
-
-.submitbtn {
-	height: 38px;
-	font-size: 20px;
-}
-/*.panel-footer {
-	position: fixed;
-	left: 0px;
-	bottom:0px;
-	width: 100%;
-}
-*/
