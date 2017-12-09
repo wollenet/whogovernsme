@@ -7,6 +7,8 @@
   <!-- bootstrap -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
   <!-- fontawesome -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+  <!-- firebase -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- jquery -->
@@ -21,16 +23,43 @@
 </div>
 </body>
 <script>
+
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB2-pE3_FGF9wlHzo5wIcCRqqGF2fTLSng",
+    authDomain: "whosemyrep.firebaseapp.com",
+    databaseURL: "https://whosemyrep.firebaseio.com",
+    projectId: "whosemyrep",
+    storageBucket: "whosemyrep.appspot.com",
+    messagingSenderId: "476733926178"
+  };
+  firebase.initializeApp(config);
+
+
+
   var senate =0;
   var congress;
   var state = 'OH'
   var localSenate= [];
   var localCongress=[];
   var iterationStop=0;
-//   if(localStorage.senate == true){
-// senate = localStorage.senate;
-//   }
-//   else {
+  var searchCounter=[];
+
+  var database = firebase.database();
+
+  database.ref().on('child_added', function(snapshot){
+    searchCounter = snapshot.val();
+  console.log(snapshot.val());
+  $('<div>',{
+  id: 'last_searched',
+  class: 'last_searched',
+  text: 'last state searched: ' + searchCounter[(searchCounter.length -1)],
+  }).appendTo('.container');
+  
+ })
+  console.log(searchCounter)
+
 $.ajax({ 
   url: 'https://api.propublica.org/congress/v1/115/senate/members.json',
   method: 'GET',
@@ -40,7 +69,6 @@ $.ajax({
 }).done(function(response) {
     console.log(response);
     senate = response;
-    localStorage.senate = response;
     console.log(response.results[0].members[0].first_name);
   });
 
@@ -53,7 +81,6 @@ $.ajax({
 }).done(function(response) {
     console.log(response);
     congress = response;
-    localStorage.congress = response;
   });
 
 console.log(senate);
@@ -69,6 +96,10 @@ function searchSenateByState(){
 }  
 function searchCongressByState(){
   if(iterationStop==0){
+    searchCounter.push(state);
+    database.ref().set({
+    searchCounter: searchCounter,
+    })
     for(i=0; i<congress.results[0].members.length; i++){
     if(congress.results[0].members[i].state == state){
       localCongress.push(congress.results[0].members[i]);
@@ -272,8 +303,7 @@ function populateData(x){
   }
 }
 $('#populate').on('click', function(){
-  console.log('i am working!')
-grabFirstName(localSenate);
+console.log(searchCounter)
 })
 $('#test').on('click', function(){
   if(senate == undefined){
@@ -286,7 +316,7 @@ $('#test').on('click', function(){
   console.log(localCongress);
   renderSenate();
   renderCongress();
-  iterationStop=1;
+  iterationStop=0;
   }
 })
 
