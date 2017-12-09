@@ -1,30 +1,3 @@
-<doctype! html>
-<!-- get tasks here https://trello.com/b/HXaghs6t/who-the-fuck-governs-me-and-what-to-they-do -->
-<!-- api docuementation page: documentation page https://projects.propublica.org/api-docs/congress-api/ -->
-
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <!-- bootstrap -->
-  <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
-  <!-- fontawesome -->
-  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-  <!-- firebase -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- jquery -->
-  <script src="https://momentjs.com/downloads/moment.js"></script>
-  <!-- moment -->
-</head>
-<body>
-<button id='test'>CLICK ME BRO</button>
-<button id='populate'>Populate</button>
-<div class='container'>
-  <div class='row'>
-</div>
-</body>
-<script>
-
-
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyB2-pE3_FGF9wlHzo5wIcCRqqGF2fTLSng",
@@ -119,6 +92,11 @@ function renderSenate(){
       class: 'senate_name',
       text: localSenate[i].first_name + " " + localSenate[i].last_name, 
       }).appendTo('#senate_placeholder'+i);
+      $('<div>',{
+      id: 'senate_img'+i,
+      class: 'senate_img',
+      alt: 'figure out pictures, kyle'
+      }).appendTo('#senate_placeholder');
       $('<p>',{
       id: 'senate_dob'+i,
       class: 'senate_dob',
@@ -213,6 +191,10 @@ function renderCongress(){
       class: 'congress_name',
       text: localCongress[i].first_name + " " + localCongress[i].last_name, 
       }).appendTo('#congress_placeholder'+i);
+      $('<img>',{
+      id: 'congress_img'+i,
+      class: 'congress_img',
+      }).appendTo('#congress_placeholder'+i);
       $('<p>',{
       id: 'congress_dob'+i,
       class: 'congress_dob',
@@ -302,29 +284,15 @@ function populateData(x){
     console.log(x);
   }
 }
-$('#populate').on('click', function(){
+$('#submit').on('click', function(){
 console.log(searchCounter)
 })
-$('#test').on('click', function(){
-  if(senate == undefined){
-
-  }
-  else {
+$('#submit').on('click', function(){
   searchSenateByState();
   searchCongressByState();
   console.log(localSenate);
   console.log(localCongress);
   renderSenate();
   renderCongress();
-  iterationStop=0;
-  }
+  iterationStop=1;
 })
-
-
-
-
-
-
-
-  </script>
-  <html>

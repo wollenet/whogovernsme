@@ -10,7 +10,7 @@ body {
 
 .container {
 	background-image: url("https://ssl.c.photoshelter.com/img-get2/I00005decq2CnCRQ/fit=1000x750/united-states-capitol-building-at-night-with-reflection-washington-panorama-107202454.jpg"); 
-	background-repeat: repeat;
+	background-repeat: no-repeat;
 	background-position: top;
 	background-size: cover;
 	height: 100%;
@@ -31,6 +31,7 @@ body {
 	background opacity: 0;
 	font-weight: bolder;
 }
+
 
 .navbar-home {
 	width: 100%;
@@ -111,10 +112,14 @@ select {
 	height: 38px;
 	font-size: 20px;
 }
-/*.panel-footer {
+.panel-footer {
 	position: fixed;
 	left: 0px;
 	bottom:0px;
 	width: 100%;
 }
-*/
+.congress_img .senate_img {
+	width:40px;
+	height:40px;
+}
+
