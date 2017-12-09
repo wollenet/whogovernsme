@@ -78,80 +78,191 @@ function searchCongressByState(){
  } 
 function renderSenate(){
   if (iterationStop==0){
-for(i=0; i<localSenate.length; i++){
-  $('<div>',{
-  id: 'senate_placeholder'+i,
-  class: 'senate_placeholder', 
-  }).appendTo('.container');
-  $('<p>',{
-  id: 'senate_name'+i,
-  class: 'senate_name',
-  text: localSenate[i].first_name + " " + localSenate[i].last_name, 
-  }).appendTo('#senate_placeholder'+i);
-  $('<p>',{
-  id: 'senate_dob'+i,
-  class: 'senate_dob',
-  text: "Born: " + moment(localSenate[i].date_of_birth).format('LL')
-  }).appendTo('#senate_placeholder'+i);
-  $('<p>',{
-  id: 'senate_state'+i,
-  class: 'senate_state',
-  text: 'State: '+ localSenate[i].state,
-  }).appendTo('#senate_placeholder'+i);
-  $('<p>',{
-    id: 'senate_party'+i,
-    class: 'senate_party',
-    text:"Party: " + localSenate[i].party,
-   }).appendTo('#senate_placeholder'+i);
-  $('<p>',{
-    id: 'senate_votes_with_party_pct'+i,
-    class: 'senate_votes_with_party_pct',
-    text: "Votes With Party Percentage: " + localSenate[i].votes_with_party_pct+'%',
-   }).appendTo('#senate_placeholder'+i);
-  if(localSenate[i].facebook_account != null){
-  $('<a>',{
-    id: 'senate_facebook'+i,
-    class: 'senate_facebook',
-    href: 'https://facebook.com/'+localSenate[i].facebook_account,
-  }).appendTo('#senate_placeholder'+i);
-   $('<i>',{ 
-    class: "fab fa-facebook fa-3x",
-   }).appendTo('#senate_facebook'+i);
-  }  
-  $('<a>',{
-    id: 'senate_contact_form'+i,
-    class: 'senate_contact_form',
-    href: localSenate[i].contact_form,
-   }).appendTo('#senate_placeholder'+i);
-  $('<i>',{
-    class: 'class="fas fa-envelope-square fa-3x'
-  }).appendTo('#senate_contact_form'+i);
-}
-}
-}
-
-function grabFirstName(x){
-  for(i=0; i<x; i++){
-    console.log(x+"i am working")
-$('#senate'+i).text(x[i].first_name);
-
+    for(i=0; i<localSenate.length; i++){
+      $('<div>',{
+      id: 'senate_placeholder'+i,
+      class: 'senate_placeholder', 
+      }).appendTo('.container');
+      $('<p>',{
+      id: 'senate_name'+i,
+      class: 'senate_name',
+      text: localSenate[i].first_name + " " + localSenate[i].last_name, 
+      }).appendTo('#senate_placeholder'+i);
+      $('<p>',{
+      id: 'senate_dob'+i,
+      class: 'senate_dob',
+      text: "Born: " + moment(localSenate[i].date_of_birth).format('LL')
+      }).appendTo('#senate_placeholder'+i);
+      $('<p>',{
+      id: 'senate_state'+i,
+      class: 'senate_state',
+      text: 'State: '+ localSenate[i].state,
+      }).appendTo('#senate_placeholder'+i);
+      $('<p>',{
+        id: 'senate_party'+i,
+        class: 'senate_party',
+        text:"Party: " + localSenate[i].party,
+       }).appendTo('#senate_placeholder'+i);
+      $('<p>',{
+        id: 'senate_votes_with_party_pct'+i,
+        class: 'senate_votes_with_party_pct',
+        text: "Votes With Party Percentage: " + localSenate[i].votes_with_party_pct+'%',
+       }).appendTo('#senate_placeholder'+i);
+      if(localSenate[i].leadership_role != null){
+       $('<p>',{
+        id: 'senate_leadership'+i,
+        class: 'senaate_leadership',
+        text: 'leadership role:' +localSenate[i].leadership_role,
+        }).appendTo('#senate_placeholder'+i);
+      }
+      $('<p>',{
+        id: 'senate_phone'+i,
+        class: 'senate_phone',
+        text: 'phone_number:'+ localSenate[i].phone,
+      }).appendTo('#senate_placeholder'+i);
+      $('<p>',{
+        id: 'senate_next_election'+i,
+        class: 'senate_next_election',
+        text: 'next election:' + localSenate[i].next_election,
+      }).appendTo('#senate_placeholder'+i);
+      if(localSenate[i].facebook_account != null){
+        $('<a>',{
+          id: 'senate_facebook'+i,
+          class: 'senate_facebook',
+          href: 'https://facebook.com/'+localSenate[i].facebook_account,
+          target: '_blank'
+        }).appendTo('#senate_placeholder'+i);
+         $('<i>',{ 
+          class: "fab fa-facebook fa-3x",
+         }).appendTo('#senate_facebook'+i);
+        }  
+      $('<a>',{
+        id: 'senate_contact_form'+i,
+        class: 'senate_contact_form',
+        href: localSenate[i].contact_form,
+        target: '_blank'
+       }).appendTo('#senate_placeholder'+i);
+      $('<i>',{
+        class: "fas fa-envelope-square fa-3x"
+      }).appendTo('#senate_contact_form'+i);
+      if(localSenate[i].twitter_account != null){
+        $('<a>',{
+          id: 'senate_twitter'+i,
+          class: 'senate_twitter',
+          href: 'https://twitter.com/'+localSenate[i].twitter_account,
+          target: '_blank'
+        }).appendTo('#senate_placeholder'+i);
+        $('<i>',{
+          class: "fab fa-twitter-square fa-3x"
+        }).appendTo('#senate_twitter'+i);
+      }
+      if(localSenate[i].youtube_account != null){
+        $('<a>',{
+          id: 'senate_youtube'+i,
+          class: 'senate_youtube',
+          href: 'https://youtube.com/'+localSenate[i].youtube_account,
+          target: '_blank'
+       }).appendTo('#senate_placeholder'+i);
+        $('<i>',{
+          class: "fab fa-youtube fa-3x"
+        }).appendTo('#senate_youtube'+i);
+      } 
+    }
   }
-
 }
-function grabLastName(x,y){
-console.log(x[y].last_name);
-}
-function grabDOB(x,y){
-console.log(x[y].date_of_birth)
-}
-function grabState(x,y){
-console.log(x[y].state)
-}
-function grabParty(x,y){
-console.log(x[y].party)
-}
-function votesWPP(x,y){
-console.log(x[y].votes_with_party_pct)
+function renderCongress(){
+  if (iterationStop==0){
+    for(i=0; i<localCongress.length; i++){
+      $('<div>',{
+      id: 'congress_placeholder'+i,
+      class: 'congress_placeholder', 
+      }).appendTo('.container');
+      $('<p>',{
+      id: 'congress_name'+i,
+      class: 'congress_name',
+      text: localCongress[i].first_name + " " + localCongress[i].last_name, 
+      }).appendTo('#congress_placeholder'+i);
+      $('<p>',{
+      id: 'congress_dob'+i,
+      class: 'congress_dob',
+      text: "Born: " + moment(localCongress[i].date_of_birth).format('LL')
+      }).appendTo('#congress_placeholder'+i);
+      $('<p>',{
+      id: 'congress_state'+i,
+      class: 'congress_state',
+      text: 'State: '+ localCongress[i].state,
+      }).appendTo('#congress_placeholder'+i);
+      $('<p>',{
+        id: 'congress_party'+i,
+        class: 'congress_party',
+        text:"Party: " + localCongress[i].party,
+       }).appendTo('#congress_placeholder'+i);
+      $('<p>',{
+        id: 'congress_votes_with_party_pct'+i,
+        class: 'congress_votes_with_party_pct',
+        text: "Votes With Party Percentage: " + localCongress[i].votes_with_party_pct+'%',
+       }).appendTo('#congress_placeholder'+i);
+      if(localCongress[i].leadership_role != null){
+       $('<p>',{
+        id: 'congress_leadership'+i,
+        class: 'senaate_leadership',
+        text: 'leadership role:' +localCongress[i].leadership_role,
+        }).appendTo('#congress_placeholder'+i);
+      }
+      $('<p>',{
+        id: 'congress_phone'+i,
+        class: 'congress_phone',
+        text: 'phone_number:'+ localCongress[i].phone,
+      }).appendTo('#congress_placeholder'+i);
+      $('<p>',{
+        id: 'congress_next_election'+i,
+        class: 'congress_next_election',
+        text: 'next election:' + localCongress[i].next_election,
+      }).appendTo('#congress_placeholder'+i);
+      if(localCongress[i].facebook_account != null){
+        $('<a>',{
+          id: 'congress_facebook'+i,
+          class: 'congress_facebook',
+          href: 'https://facebook.com/'+localCongress[i].facebook_account,
+          target: '_blank'
+        }).appendTo('#congress_placeholder'+i);
+         $('<i>',{ 
+          class: "fab fa-facebook fa-3x",
+         }).appendTo('#congress_facebook'+i);
+        }  
+      $('<a>',{
+        id: 'congress_contact_form'+i,
+        class: 'congress_contact_form',
+        href: localCongress[i].contact_form,
+        target: '_blank'
+       }).appendTo('#congress_placeholder'+i);
+      $('<i>',{
+        class: "fas fa-envelope-square fa-3x"
+      }).appendTo('#congress_contact_form'+i);
+      if(localCongress[i].twitter_account != null){
+        $('<a>',{
+          id: 'congress_twitter'+i,
+          class: 'congress_twitter',
+          href: 'https://twitter.com/'+localCongress[i].twitter_account,
+          target: '_blank'
+        }).appendTo('#congress_placeholder'+i);
+        $('<i>',{
+          class: "fab fa-twitter-square fa-3x"
+        }).appendTo('#congress_twitter'+i);
+      }
+      if(localCongress[i].youtube_account != null){
+        $('<a>',{
+          id: 'congress_youtube'+i,
+          class: 'congress_youtube',
+          href: 'https://youtube.com/'+localCongress[i].youtube_account,
+          target: '_blank'
+       }).appendTo('#congress_placeholder'+i);
+        $('<i>',{
+          class: "fab fa-youtube fa-3x"
+        }).appendTo('#congress_youtube'+i);
+      }
+    }
+  }
 }
 
 function populateData(x){
@@ -171,11 +282,10 @@ $('#test').on('click', function(){
   else {
   searchSenateByState();
   searchCongressByState();
-  grabFirstName(localSenate, 0);
-  grabLastName(localSenate, 0);
   console.log(localSenate);
   console.log(localCongress);
   renderSenate();
+  renderCongress();
   iterationStop=1;
   }
 })
