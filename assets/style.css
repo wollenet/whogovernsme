@@ -1,0 +1,121 @@
+body, html{
+	height:100%;
+	width:100%;
+}
+
+body {
+	font-family: 'Oswald', sans-serif;
+}
+
+
+.container {
+	background-image: url("https://ssl.c.photoshelter.com/img-get2/I00005decq2CnCRQ/fit=1000x750/united-states-capitol-building-at-night-with-reflection-washington-panorama-107202454.jpg"); 
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+/*.fill {
+	min-height: 100%;
+	height: 100%;
+}
+*/
+.navbar {
+	width: 100%;
+/*	max-height: 65px;*/
+	border: 0;
+	padding: 10px;
+	background-color: black;
+	background opacity: 0;
+	font-weight: bolder;
+}
+
+
+.navbar-home {
+	width: 100%;
+	padding: 0px;
+	border: 0;
+	text-decoration:none;
+    font-family:Arial;
+    display: block
+    background opacity: 0;
+}
+
+.navbar-title {
+	width: 100%;
+	padding: 0px;
+	border: 0;
+	text-decoration:none;
+    font-family:Arial;
+    display: block
+}
+
+.navbar-login {
+	width: 100%;
+	padding: 0px;
+	border: 0;
+	text-decoration:none;
+    font-family:Arial;
+    display: block
+}
+
+.navlink {
+	font-size: 20px;
+}
+
+.navbar-homelink {
+	max-width: 30px;
+}
+
+button {
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+	font-style: ;
+}
+
+.sumbit-row {
+	padding-top: 0px;
+}
+
+.form-group {
+	color: white;
+	size: 20px;
+	float: left;
+}
+
+.submit-div {
+	float: left;
+	padding-top: 20px;
+}
+
+select {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	font: normal 60px/60px arial;
+}
+
+#dropdown {
+	width: auto;
+}
+
+.form-control {
+	height: 38px;
+	font-size: 25px;
+	padding-bottom: 4px
+}
+
+.submitbtn {
+	height: 38px;
+	font-size: 20px;
+}
+.panel-footer {
+	position: fixed;
+	left: 0px;
+	bottom:0px;
+	width: 100%;
+}
+
