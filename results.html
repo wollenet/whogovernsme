@@ -2,41 +2,61 @@
 <html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, intial-scale=1, user-scalable=no">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
- 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-   	<link rel="stylesheet" type="text/css" href="assets/resultstyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, intial-scale=1, user-scalable=no">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ <!-- bootstrap -->
+ <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+ <!-- fontawesome -->
+ <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+ <!-- firebase -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <!-- jquery -->
+ <script src="https://momentjs.com/downloads/moment.js"></script>
+ <!-- moment -->
+ <link rel="stylesheet" type="text/css" href="assets/resultstyle.css">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <title>&#9733  SEARCH RESULTS  &#9733</title>
 </head>
 <body>
 
-<div class="wrapper">
-    <nav class="navbar">
-        <div class="row">
-            <div class="col-md-2">
-                <button type="button" class="navbar-home">
-                    <a class="navbar-homelink navlink" href="#">&#9733  HOME  &#9733</a>
-                </button>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-6">
-                <button type="button" class="navbar-title">
-                    <a class="navbar-titlelink navlink" href="#">&#9733  WHO REPS YOU?  &#9733</a>
-                </button>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-2">
-                <button type="button" class="navbar-login">
-                    <a class="navbar-loginlink navlink" href="#">&#9733  LINK  &#9733</a>
-                </button>
-            </div>
+<div class="container">
+    <nav class="navbar navbar-default navbar-custom">
+      <div class="row">
+        <div class="col-md-3 col-xs-3 text-center">
+          <button type="button" class="btn btn-nav">
+            <a class="navbar-homelink" href="#" style="color:blue">&#9733  HOME  &#9733</a>
+          </button>
         </div>
+        <div class="col-md-6 col-xs-6 text-center">
+          <div class="title">
+            <span class="star">&#9733  </span>
+            <span class="who">WHO  </span>
+            <span class="reps">REPS  </span>
+            <span class="you">YOU?  </span>
+            <span class="star">&#9733</span>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-3">
+          <button type="button" class="btn btn-nav text-center">
+            <a class="navbar-link" href="#" style="color:red">&#9733  LINK  &#9733</a>
+          </button>
+        </div>
+      </div>
     </nav>
      
-    <div class="container">
+    <div class="senate-div">
+      <div class = "thesenate">SENATORS</div>
+      <div class="row senate-results"></div>
     </div>
+    <br>
+    <div id ='clear'></div>
+    <div class = "house-div">
+      <div class = "thehouse">CONGRESSMEN</div>
+      <div class="row house-results"></div>
+    </div>
+    
+    <button id='submit'>Event Test</button>
 <!--      <div class="jumbotron results-div">
 		<h1 id="header">Congressmen Search Results</h1>
 		
@@ -70,7 +90,7 @@
 
 
 
-	</div>
+	</div> -->
 </div>
 
 
@@ -78,8 +98,8 @@
 </body>
 
 <script type="text/javascript" src="whorepsme.js"></script>
-<script>
+<!-- <script>
 renderSenate();
 renderCongress();
-</script>
+</script> -->
 </html>
