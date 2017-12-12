@@ -2,7 +2,6 @@ body, html{
 	height: 100%;
 	width: 100%;
 	background-image: url("http://www.powerpointhintergrund.com/uploads/2017/05/patriotic-star-backgrounds-hd-wallpaper-at-wallpapersmap--21.jpeg"); 
-
 }
 
 p {
@@ -13,8 +12,23 @@ p {
 	float: left;
 	margin: 2%;
 	margin-top: 4px;
+	padding: 5px;
 	border: solid white 2px;
 }
+
+.thesenate {
+	font-family: Georgia Serif;
+	font-size: 30px;
+	font-weight: bolder;
+	color: red;
+	margin-left: 18px;
+}
+
+.senate_name {
+	font-weight: bolder;
+	font-style: italic;
+}
+
 #clear {
 	clear:both;
 }
@@ -23,11 +37,26 @@ p {
 	float: left;
 	margin: 2%;
 	margin-top: 4px;
-
+	padding: 5px;
+	border: solid white 2px;
 }
 
+.thehouse {
+	font-family: Georgia Serif;
+	font-size: 30px;
+	font-weight: bolder;
+	color: blue;
+	margin-left: 18px;
+}
+
+.congress_name {
+	font-weight: bolder;
+	font-style: italic;
+} 
+
 .fa-3x {
-	margin-right: 4px;
+	margin-right: 6px;
+	color: white;
 }
 
 .container {
@@ -69,6 +98,7 @@ p {
 	font-weight: bolder;
 	font-style: normal;
 }
+
 button {
 	background-color: black
 }
