@@ -23,13 +23,12 @@
   <div class="container">
     <nav class="navbar navbar-default navbar-custom">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-3 col-xs-3 text-center">
           <button type="button" class="btn btn-nav">
             <a class="navbar-homelink" href="#" style="color:blue">&#9733  HOME  &#9733</a>
           </button>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-xs-6 text-center">
           <div class="title">
             <span class="star">&#9733  </span>
             <span class="who">WHO  </span>
@@ -38,9 +37,8 @@
             <span class="star">&#9733</span>
           </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2">
-          <button type="button" class="btn btn-nav">
+        <div class="col-md-3 col-xs-3">
+          <button type="button" class="btn btn-nav text-center">
             <a class="navbar-link" href="#" style="color:red">&#9733  LINK  &#9733</a>
           </button>
         </div>
@@ -52,8 +50,7 @@
       <br>
       <span class="">Franklin D. Roosevelt</span>  
      </div>
-     <div class="col-md-5"></div>
-     <div class="col-md-2 search-div">
+     <div class="col-md-12 col-xs-12 text-center search-div">
 	  <row class="row submit-row">
         <div class="form-group">
           <label for="state" class="control-label"></label>
@@ -123,10 +120,18 @@
         </div>
       </row>
      </div>
-     <div class="col-md-5"></div>
+     <br>
+     <div class="col-md-12 col-xs-12 last-div">
+
+
+      </div>
     </div>   
   </div> 
 <!--  -->
-<script type="text/javascript" src="whorepsme.js"></script>
+<script type="text/javascript" src="whorepsme.js">
+  database.ref().on('child_added', function(snapshot) {
+  searchCounter = snapshot.val();
+  console.log(snapshot.val());
+</script>
 </body>
 </html>

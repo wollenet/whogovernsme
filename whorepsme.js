@@ -23,16 +23,13 @@ var searchCounter = [];
 var database = firebase.database();
 
 //
-database.ref().on('child_added', function(snapshot) {
-  searchCounter = snapshot.val();
-  console.log(snapshot.val());
+
   
   $('<div>',{
    id: 'last_searched',
    class: 'last_searched',
    text: 'last state searched: ' + searchCounter[(searchCounter.length -1)],
-  }).appendTo('.container');
-});
+  }).appendTo('.last-div');
   
 console.log(searchCounter)
 
@@ -42,7 +39,7 @@ $.ajax({
   method: 'GET',
   headers: {
    'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
-  };
+}
  }).done(function(response) {
   console.log(response);
   senate = response;
@@ -55,11 +52,17 @@ $.ajax({
   method: 'GET',
   headers: {
    'X-API-Key': "kIwNMkbkFvAvXtl5SnzYqQ7AMLtfEdQ9wPaVOumy" 
-  };
+  }
 }).done(function(response) {
   console.log(response);
   congress = response;
   console.log(response.results[0].members[0].first_name);
+  searchSenateByState();
+  searchCongressByState();
+  console.log(localSenate);
+  console.log(localCongress);
+  renderSenate();
+  renderCongress();
 });
 
 console.log(senate);
@@ -106,7 +109,7 @@ function renderSenate() {
       $('<div>', {
        id: 'senate_placeholder' + i,
        class: 'senate_placeholder', 
-      }).appendTo('.container');
+      }).appendTo('.senate-results');
       //
       $('<p>',{
        id: 'senate_name' + i,
@@ -144,13 +147,13 @@ function renderSenate() {
        text: "Votes With Party Percentage: " + localSenate[i].votes_with_party_pct + '%',
       }).appendTo('#senate_placeholder' + i);
       // displays leadership role if one exists
-      if (localSenate[i].leadership_role != null) {
-        $('<p>',{
-         id: 'senate_leadership' + i,
-         class: 'senaate_leadership',
-         text: 'leadership role:' + localSenate[i].leadership_role,
-        }).appendTo('#senate_placeholder' + i);
-      };
+      // if (localSenate[i].leadership_role != null) {
+      //   $('<p>',{
+      //    id: 'senate_leadership' + i,
+      //    class: 'senaate_leadership',
+      //    text: 'leadership role:' + localSenate[i].leadership_role,
+      //   }).appendTo('#senate_placeholder' + i);
+      // };
       //
       $('<p>',{
        id: 'senate_phone' + i,
@@ -224,7 +227,7 @@ function renderCongress() {
       $('<div>',{
        id: 'congress_placeholder' + i,
        class: 'congress_placeholder', 
-      }).appendTo('.container');
+      }).appendTo('.house-results');
       //
       $('<p>',{
        id: 'congress_name' + i,
@@ -232,11 +235,11 @@ function renderCongress() {
        text: localCongress[i].first_name + " " + localCongress[i].last_name, 
       }).appendTo('#congress_placeholder' + i);
       //
-      $('<img>',{
-       id: 'congress_img' + i,
-       class: 'congress_img',
-      }).appendTo('#congress_placeholder' + i);
-      //
+      // $('<img>',{
+      //  id: 'congress_img' + i,
+      //  class: 'congress_img',
+      // }).appendTo('#congress_placeholder' + i);
+      // //
       $('<p>',{
        id: 'congress_dob' + i,
        class: 'congress_dob',
@@ -261,13 +264,13 @@ function renderCongress() {
        text: "Votes With Party Percentage: " + localCongress[i].votes_with_party_pct + '%',
       }).appendTo('#congress_placeholder' + i);
       // 
-      if (localCongress[i].leadership_role != null) {
-        $('<p>',{
-         id: 'congress_leadership' + i,
-         class: 'senaate_leadership',
-         text: 'leadership role:' + localCongress[i].leadership_role,
-        }).appendTo('#congress_placeholder' + i);
-      };  
+      // if (localCongress[i].leadership_role != null) {
+      //   $('<p>',{
+      //    id: 'congress_leadership' + i,
+      //    class: 'senaate_leadership',
+      //    text: 'leadership role:' + localCongress[i].leadership_role,
+      //   }).appendTo('#congress_placeholder' + i);
+      // };  
       //
       $('<p>',{
        id: 'congress_phone' + i,
