@@ -158,13 +158,13 @@ function renderSenate() {
       $('<p>',{
        id: 'senate_phone' + i,
        class: 'senate_phone',
-       text: 'phone_number:' + localSenate[i].phone,
+       text: 'Phone Number: ' + localSenate[i].phone,
       }).appendTo('#senate_placeholder' + i);
       // displays next election date
       $('<p>',{
        id: 'senate_next_election' + i,
        class: 'senate_next_election',
-       text: 'next election:' + localSenate[i].next_election,
+       text: 'Next Election: ' + localSenate[i].next_election,
       }).appendTo('#senate_placeholder' + i);
       // displays senate contact form
       $('<a>',{
@@ -275,13 +275,13 @@ function renderCongress() {
       $('<p>',{
        id: 'congress_phone' + i,
        class: 'congress_phone',
-       text: 'phone_number:'+ localCongress[i].phone,
+       text: 'Phone_number: '+ localCongress[i].phone,
       }).appendTo('#congress_placeholder' + i);
       //
       $('<p>',{
        id: 'congress_next_election' + i,
        class: 'congress_next_election',
-       text: 'next election:' + localCongress[i].next_election,
+       text: 'Next Election: ' + localCongress[i].next_election,
       }).appendTo('#congress_placeholder' + i);
       // 
       $('<a>',{
