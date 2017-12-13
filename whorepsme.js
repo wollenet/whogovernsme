@@ -13,7 +13,7 @@ firebase.initializeApp(config);
 //
 var senate = 0;
 var congress;
-var state = 'OH';
+var state = localStorage.getItem('state')
 var localSenate = [];
 var localCongress = [];
 var iterationStop = 0;
@@ -22,14 +22,11 @@ var searchCounter = [];
 //
 var database = firebase.database();
 
-//
-
-  
-  $('<div>',{
-   id: 'last_searched',
-   class: 'last_searched',
-   text: 'last state searched: ' + searchCounter[(searchCounter.length -1)],
-  }).appendTo('.last-div');
+  database.ref().on('child_added', function(snapshot) {
+  searchCounter = snapshot.val();
+  console.log(snapshot.val());
+  $('#last_searched').text('Last Search: ' + searchCounter[(searchCounter.length-1)]);
+});
   
 console.log(searchCounter)
 
@@ -85,10 +82,10 @@ function searchSenateByState() {
 function searchCongressByState() {
   //
   if (iterationStop == 0) {
-    searchCounter.push(state);
-    database.ref().set ({
-      searchCounter: searchCounter,
-    });
+    // searchCounter.push(state);
+    // database.ref().set ({
+    //   searchCounter: searchCounter,
+    // });
     //  
     for (i = 0; i < congress.results[0].members.length; i++) {
       //
@@ -284,6 +281,7 @@ function renderCongress() {
        text: 'Next Election: ' + localCongress[i].next_election,
       }).appendTo('#congress_placeholder' + i);
       // 
+      if(localCongress[i].contact_form != null){
       $('<a>',{
        id: 'congress_contact_form' + i,
        class: 'congress_contact_form',
@@ -294,6 +292,7 @@ function renderCongress() {
       $('<i>',{
        class: "fas fa-envelope-square fa-3x"
       }).appendTo('#congress_contact_form' + i);
+      }
       //
       if (localCongress[i].facebook_account != null) {
         $('<a>',{
@@ -346,11 +345,17 @@ $('#submit').on('click', function() {
 });
 //
 $('#submit').on('click', function() {
-  searchSenateByState();
-  searchCongressByState();
-  console.log(localSenate);
-  console.log(localCongress);
-  renderSenate();
-  renderCongress();
+  state = $('#Select1').val();
+  localStorage.setItem('state', state)
+    searchCounter.push(state);
+    database.ref().set ({
+    searchCounter: searchCounter,
+  })
+  // searchSenateByState();
+  // searchCongressByState();
+  // console.log(localSenate);
+  // console.log(localCongress);
+  // renderSenate();
+  // renderCongress();
   iterationStop = 1;
 });
