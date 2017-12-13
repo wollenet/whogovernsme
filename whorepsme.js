@@ -10,7 +10,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-//
+//initial variables
 var senate = 0;
 var congress;
 var state = localStorage.getItem('state')
@@ -19,18 +19,18 @@ var localCongress = [];
 var iterationStop = 0;
 var searchCounter = [];
 
-//
+//firebase database
 var database = firebase.database();
-
+//last searched state from database
   database.ref().on('child_added', function(snapshot) {
   searchCounter = snapshot.val();
   console.log(snapshot.val());
-  $('#last_searched').text('Last Search: ' + searchCounter[(searchCounter.length-1)]);
+  $('#last_searched').text('LAST SEARCH: ' + searchCounter[(searchCounter.length-1)]);
 });
   
 console.log(searchCounter)
 
-//
+//api for senate members
 $.ajax({ 
   url: 'https://api.propublica.org/congress/v1/115/senate/members.json',
   method: 'GET',
@@ -43,7 +43,7 @@ $.ajax({
   console.log(response.results[0].members[0].first_name);
  });
 
-//
+//api for house members
 $.ajax({ 
   url: 'https://api.propublica.org/congress/v1/115/house/members.json',
   method: 'GET',
@@ -64,7 +64,7 @@ $.ajax({
 
 console.log(senate);
 
-//
+//senate loop
 function searchSenateByState() {
   //
   if (iterationStop == 0) {
@@ -78,7 +78,7 @@ function searchSenateByState() {
   };
 };
 
-//
+//house loop
 function searchCongressByState() {
   //
   if (iterationStop == 0) {
@@ -98,7 +98,7 @@ function searchCongressByState() {
 
 // 
 function renderSenate() {
-  //
+  //loop append senator data to div
   if (iterationStop == 0) {
     //
     for (i = 0; i < localSenate.length; i++) {
@@ -117,13 +117,14 @@ function renderSenate() {
       $('<div>',{
        id: 'senate_img' + i,
        class: 'senate_img',
-      }).appendTo('#senate_placeholder'+i);
+      }).appendTo('#senate_placeholder' + i);
       //
       $('<img>',{
-        id: 'senate_voteSmart_img'+i,
+        id: 'senate_voteSmart_img' + i,
         class: 'senate_voteSmartImg',
-        src: 'https://static.votesmart.org/canphoto/'+localSenate[i].votesmart_id+'.jpg'
-      }).appendTo('#senate_img'+i)
+        src: 'https://static.votesmart.org/canphoto/' + localSenate[i].votesmart_id + '.jpg'
+      }).appendTo('#senate_img' + i)
+      //
       $('<p>',{
        id: 'senate_dob' + i,
        class: 'senate_dob',
@@ -151,7 +152,7 @@ function renderSenate() {
       // if (localSenate[i].leadership_role != null) {
       //   $('<p>',{
       //    id: 'senate_leadership' + i,
-      //    class: 'senaate_leadership',
+      //    class: 'senate_leadership',
       //    text: 'leadership role:' + localSenate[i].leadership_role,
       //   }).appendTo('#senate_placeholder' + i);
       // };
@@ -220,7 +221,7 @@ function renderSenate() {
 
 // 
 function renderCongress() {
-  // 
+  //loop append congressman data to div
   if (iterationStop == 0) {
     // 
     for (i = 0; i < localCongress.length; i++) {

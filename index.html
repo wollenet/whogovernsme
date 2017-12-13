@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, intial-scale=1, user-scalable=no">
@@ -14,11 +13,9 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  <!-- moment -->
  <script src="https://momentjs.com/downloads/moment.js"></script>
- <!-- link to style css -->
+ <!-- link to css file -->
  <link rel="stylesheet" type="text/css" href="assets/style.css">
- <!-- -->
-<!--  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> --> 
- <title>&#9733  WHO REPS YOU?  &#9733</title>
+<title>&#9733  SEARCH RESULTS  &#9733</title>
 </head>
 
 <body>
@@ -27,7 +24,7 @@
       <div class="row">
         <div class="col-md-3 col-xs-3 text-center">
           <button type="button" class="btn btn-nav">
-            <a class="navbar-homelink" href="index.html" style="color:blue">&#9733  HOME  &#9733</a>
+            <a class="navbar-homelink" href="index.html" style="color:blue"><span class="star">&#9733 </span>HOME<span class="star"> &#9733</span></a>
           </button>
         </div>
         <div class="col-md-6 col-xs-6 text-center">
@@ -41,24 +38,24 @@
         </div>
         <div class="col-md-3 col-xs-3">
           <button type="button" class="btn btn-nav text-center">
-            <a class="navbar-link" href="#" style="color:red">&#9733 <span id='last_searched'></span> &#9733</a>
+            <a class="navbar-link" href="#" style="color:red"><span class="star">&#9733 </span><span id='last_searched'></span><span class="star"> &#9733</span></a>
           </button>
         </div>
       </div>
     </nav>
     <div class="homepage-body">  
      <div class="intro-text">
-      <span>“Democracy cannot succeed unless those who express their choice are prepared to choose wisely. The real safeguard of democracy, therefore, is education.”</span>
+      <span>“What you're supposed to do when you don't like a thing is change it. If you can't change it, change the way you think about it. Don't complain.”</span>
       <br>
-      <span class="">Franklin D. Roosevelt</span>  
+      <span class="author">-Maya Angelou</span>  
      </div>
      <div class="col-md-12 col-xs-12 text-center search-div">
-	  <row class="row submit-row">
+	     <row class="row submit-row">
         <div class="form-group">
           <label for="state" class="control-label"></label>
             <div class="state">
               <select class="form-control" id="Select1" name="state">
-                <option value="">Select State</option>
+                <option value="" selected disabled>Select State</option>
                 <option value="AK">Alaska</option>
                 <option value="AL">Alabama</option>
                 <option value="AR">Arkansas</option>
@@ -122,16 +119,9 @@
         </div>
       </row>
      </div>
-     <br>
-     <div class="col-md-12 col-xs-12 last-div">
-
-
-      </div>
     </div>   
   </div> 
 <!--  -->
-<script type="text/javascript" src="whorepsme.js">
-
-</script>
+<script type="text/javascript" src="whorepsme.js"></script>
 </body>
 </html>
