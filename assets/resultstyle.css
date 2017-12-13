@@ -3,69 +3,20 @@ body, html{
 	width: 100%;
 	background-image: url("http://www.powerpointhintergrund.com/uploads/2017/05/patriotic-star-backgrounds-hd-wallpaper-at-wallpapersmap--21.jpeg"); 
 }
-
 p {
 	color: white;
 }
-
-.senate_placeholder {
-	float: left;
-	margin: 2%;
-	margin-top: 4px;
-	padding: 5px;
-	border: solid white 2px;
-}
-
-.thesenate {
-	font-family: Georgia Serif;
-	font-size: 30px;
-	font-weight: bolder;
-	color: red;
-	margin-left: 18px;
-}
-
-.senate_name {
-	font-weight: bolder;
-	font-style: italic;
-}
-
-#clear {
-	clear:both;
-}
-
-.congress_placeholder {
-	float: left;
-	margin: 2%;
-	margin-top: 4px;
-	padding: 5px;
-	border: solid white 2px;
-}
-
-.thehouse {
-	font-family: Georgia Serif;
-	font-size: 30px;
-	font-weight: bolder;
-	color: blue;
-	margin-left: 18px;
-}
-
-.congress_name {
-	font-weight: bolder;
-	font-style: italic;
-} 
-
-.fa-3x {
-	margin-right: 6px;
+button {
+	background-color: black;
 	color: white;
+	font-weight: bolder;
 }
-
 .container {
 	background-position: top;
 	background-size: cover;
 	height: 100%;
 	width: 100%;
 }
-
 /*NAVBAR STYLING*/
 .navbar-custom {
 	width: 100%;
@@ -74,7 +25,6 @@ p {
 	background-color: black;
 	font-weight: bolder;
 }
-
 .btn-nav {
 	width: 100%;
 	margin-top: 4px;
@@ -88,7 +38,6 @@ p {
 	font-weight: bolder;
 	font-style: normal;
 }
-
 .title {
 	width: 100%;
 	margin-top: 3px;
@@ -98,30 +47,61 @@ p {
 	font-weight: bolder;
 	font-style: normal;
 }
-
-button {
-	background-color: black
-}
-
 .star {
 	color: white;
 }
-
 .who {
 	color: red;
 }
-
 .reps {
 	color: white;
 }
-
 .you {
 	color: blue;
 }
-
-button {
-	background-color: black;
-	color: white;
+/*RESULTS STYLING*/
+.senate_placeholder {
+	float: left;
+	margin: 2%;
+	margin-top: 4px;
+	padding: 10px;
+	border: solid white 2px;
+}
+.thesenate {
+	font-family: Georgia Serif;
+	font-size: 30px;
 	font-weight: bolder;
-	font-style: ;
+	color: red;
+	margin-left: 18px;
+}
+.senate_name {
+	font-weight: bolder;
+	font-style: italic;
+	font-size: 22px;
+}
+#clear {
+	clear:both;
+}
+.congress_placeholder {
+	float: left;
+	margin: 2%;
+	margin-top: 4px;
+	padding: 5px;
+	border: solid white 2px;
+}
+.thehouse {
+	font-family: Georgia Serif;
+	font-size: 30px;
+	font-weight: bolder;
+	color: blue;
+	margin-left: 18px;
+}
+.congress_name {
+	font-weight: bolder;
+	font-style: italic;
+	font-size: 22px;
+} 
+.fa-3x {
+	margin-right: 6px;
+	color: white;
 }

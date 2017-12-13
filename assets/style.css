@@ -2,7 +2,11 @@ body, html{
 	height: 100%;
 	width: 100%;
 }
-
+button {
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+}
 .container {
 	background-image: url("https://ssl.c.photoshelter.com/img-get2/I00005decq2CnCRQ/fit=1000x750/united-states-capitol-building-at-night-with-reflection-washington-panorama-107202454.jpg"); 
 	background-repeat: no-repeat;
@@ -11,7 +15,6 @@ body, html{
 	height: 100%;
 	width: 100%;
 }
-
 /*NAVBAR STYLING*/
 .navbar-custom {
 	width: 100%;
@@ -20,7 +23,6 @@ body, html{
 	background-color: black;
 	font-weight: bolder;
 }
-
 .btn-nav {
 	width: 100%;
 	margin-top: 4px;
@@ -34,7 +36,6 @@ body, html{
 	font-weight: bolder;
 	font-style: normal;
 }
-
 .title {
 	width: 100%;
 	margin-top: 3px;
@@ -44,70 +45,62 @@ body, html{
 	font-weight: bolder;
 	font-style: normal;
 }
-
-button {
-	background-color: black
-}
-
 .star {
 	color: white;
 }
-
 .who {
 	color: red;
 }
-
 .reps {
 	color: white;
 }
-
 .you {
 	color: blue;
 }
-
-/*BODY STYLING*/
+/*HEAD STYLING*/
 .intro-text {
 	font-family: "Georgia", serif;
 	font-size: 18px;
 	font-style: italic;
 	font-weight: bolder;
-	color: black;
+	color: red;
 	text-align: center;
+	padding:90px;
 }
-
+.author {
+	color: blue;
+}
+/*FORM STYLING*/
 .search-div {
 	margin-top: 65px;
 	margin: 0 auto;
 }
-
 .submit-row {
 	padding-top: 0px;
 	align-content: center;
 	display: inline-block;
 }
-
 .form-group {
 	color: white;
 	size: 20px;
 	float: left;
 }
-
 .submit-div {
 	float: left;
 	padding-top: 1px;
 }
-
 select {
+	padding: 10px, 15px;
+	border: none;
+	border-radius: 5px;
 	cursor: pointer;
 	display: inline-block;
 	position: relative;
 	font: normal 60px/60px arial;
 }
-
 #dropdown {
 	width: auto;
 }
-
 .form-control {
 	height: 45px;
 	width: 150px;
@@ -115,14 +108,12 @@ select {
 	font-size: 16px;
 	font-weight: bolder;
 }
-
 #Select1 {
 	color: white;
 	background-color: red;
 	border: solid black 1px;
 	padding-bottom: 10px
 }
-
 .submitbtn {
 	height: 45px;
 	width: 150px;
@@ -136,14 +127,7 @@ select {
 	font-weight: bolder;
 	border: solid black 1px;
 }
-
 .last_searched {
 	color: black;
-}
-
-
-.congress_img .senate_img {
-	width:40px;
-	height:40px;
 }
 

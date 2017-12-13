@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, intial-scale=1, user-scalable=no">
@@ -16,17 +15,15 @@
  <script src="https://momentjs.com/downloads/moment.js"></script>
  <!-- link to css file -->
  <link rel="stylesheet" type="text/css" href="assets/resultstyle.css">
- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <title>&#9733  SEARCH RESULTS  &#9733</title>
+<title>&#9733  SEARCH RESULTS  &#9733</title>
 </head>
-
 <body>
-<div class="container">
+  <div class="container">
     <nav class="navbar navbar-default navbar-custom">
       <div class="row">
         <div class="col-md-3 col-xs-3 text-center">
           <button type="button" class="btn btn-nav">
-            <a class="navbar-homelink" href="index.html" style="color:blue">&#9733  HOME  &#9733</a>
+            <a class="navbar-homelink" href="index.html" style="color:blue"><span class="star">&#9733 </span>HOME<span class="star"> &#9733</span></a>
           </button>
         </div>
         <div class="col-md-6 col-xs-6 text-center">
@@ -40,12 +37,12 @@
         </div>
         <div class="col-md-3 col-xs-3">
           <button type="button" class="btn btn-nav text-center">
-            <a class="navbar-link" href="#" style="color:red">&#9733<span id='last_searched'></span>&#9733</a>
+            <a class="navbar-link" href="#" style="color:red"><span class="star">&#9733 </span><span id='last_searched'></span><span class="star"> &#9733</span></a>
           </button>
         </div>
       </div>
     </nav>
-     
+    <!-- Search Results Div's  -->
     <div class="senate-div">
       <div class="thesenate">SENATORS</div>
       <div class="row senate-results"></div>
@@ -56,15 +53,7 @@
       <div class="thehouse">CONGRESSMEN</div>
       <div class="row house-results"></div>
     </div>
-    
-    
-
-</div>
-
-
-
+  </div>
 </body>
-
 <script type="text/javascript" src="whorepsme.js"></script>
-
 </html>
