@@ -1,8 +1,8 @@
 var senate = 0;
 var congress;
 var state = 'OH';
-var localSenate = ["Lamar Alexander", "Tammy Baldwin"];
-var localCongress = ["Ralph Abraham"];
+var localSenate = [];
+var localCongress = [];
 var iterationStop = 0;
 var searchCounter = [];
 function displaySenateBioPicture() {
