@@ -82,6 +82,14 @@ button {
 #clear {
 	clear:both;
 }
+
+.senate_voteSmartImg {
+	padding: 5px 2px 15px 50px;
+}
+
+.congress_voteSmartImg {
+	padding: 5px 2px 15px 50px;
+}
 .congress_placeholder {
 	float: left;
 	margin: 2%;
