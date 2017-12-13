@@ -117,9 +117,13 @@ function renderSenate() {
       $('<div>',{
        id: 'senate_img' + i,
        class: 'senate_img',
-       alt: 'figure out pictures, kyle'
-      }).appendTo('#senate_placeholder');
+      }).appendTo('#senate_placeholder'+i);
       //
+      $('<img>',{
+        id: 'senate_voteSmart_img'+i,
+        class: 'senate_voteSmartImg',
+        src: 'https://static.votesmart.org/canphoto/'+localSenate[i].votesmart_id+'.jpg'
+      }).appendTo('#senate_img'+i)
       $('<p>',{
        id: 'senate_dob' + i,
        class: 'senate_dob',
@@ -231,12 +235,16 @@ function renderCongress() {
        class: 'congress_name',
        text: localCongress[i].first_name + " " + localCongress[i].last_name, 
       }).appendTo('#congress_placeholder' + i);
+      $('<div>',{
+       id: 'congress_img' + i,
+       class: 'congress_img',
+      }).appendTo('#congress_placeholder'+i);
       //
-      // $('<img>',{
-      //  id: 'congress_img' + i,
-      //  class: 'congress_img',
-      // }).appendTo('#congress_placeholder' + i);
-      // //
+      $('<img>',{
+        id: 'congress_voteSmart_img'+i,
+        class: 'congress_voteSmartImg',
+        src: 'https://static.votesmart.org/canphoto/'+localCongress[i].votesmart_id+'.jpg'
+      }).appendTo('#congress_img'+i)
       $('<p>',{
        id: 'congress_dob' + i,
        class: 'congress_dob',
