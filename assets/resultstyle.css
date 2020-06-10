@@ -3,9 +3,6 @@ body, html{
 	width: 100%;
 	background-image: url("http://www.powerpointhintergrund.com/uploads/2017/05/patriotic-star-backgrounds-hd-wallpaper-at-wallpapersmap--21.jpeg"); 
 }
-p {
-	color: white;
-}
 button {
 	background-color: black;
 	color: white;
@@ -65,7 +62,7 @@ button {
 	margin: 2%;
 	margin-top: 4px;
 	padding: 10px;
-	border: solid white 2px;
+	border: solid black 2px;
 }
 .thesenate {
 	font-family: Georgia Serif;
@@ -95,7 +92,7 @@ button {
 	margin: 2%;
 	margin-top: 4px;
 	padding: 5px;
-	border: solid white 2px;
+	border: solid black 2px;
 }
 .thehouse {
 	font-family: Georgia Serif;
@@ -111,5 +108,5 @@ button {
 } 
 .fa-3x {
 	margin-right: 6px;
-	color: white;
+	color: black;
 }

@@ -348,18 +348,17 @@ function populateData(x) {
      console.log(x);
   };
 };
-//
-$('#submit').on('click', function() {
-  console.log(searchCounter)
-});
-//
-$('#submit').on('click', function() {
-  state = $('#Select1').val();
+
+$('#submit').on('click', function(event) {
+  event.preventDefault()
+  state = $('#Select1').val();  
   localStorage.setItem('state', state)
     searchCounter.push(state);
     database.ref().set ({
     searchCounter: searchCounter,
   })
+
+  window.location.href = "./results.html"
   // searchSenateByState();
   // searchCongressByState();
   // console.log(localSenate);
